@@ -34,6 +34,7 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical research fund")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical foundation")
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"trond mohn")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"_tms starting grant")
  
 THEN "TMS"
 ELSE "ANNET"
