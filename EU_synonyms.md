@@ -45,6 +45,8 @@ AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
 
+So far I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok.
+
 #### Code
 
 ```
@@ -56,8 +58,10 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"7th framework eu project "	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"7th european framework programme"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"7th eu framework programme"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu 7th framework integrated program"	)
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu - fp7 project"	)
+OR CONTAINS(([NIB_FUNDING_organisation]),	"FP6"		)
+OR CONTAINS(([NIB_FUNDING_organisation]),	"FP7"		)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu 7th framework project"	)
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu - fp7 project"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"seventh framework program"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu fp7"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu-fp7"	)
@@ -68,7 +72,6 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp7 eu"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp-7 of the eu"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp7/erc"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"european fp7"		)
-OR CONTAINS(([NIB_FUNDING_organisation]),	"EU FP6"		)
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu horizon"	)		
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"horizon 2020"	)
@@ -85,6 +88,7 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu's horizon"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"horizon framework program"	)		
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),  "european commission under horizon")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"framework programme horizon"	)
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"horizon europe"	)
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"marie curie"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"marie sklodowska-curie"	)
@@ -131,17 +135,8 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"erc starting grant"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"european science council (erc)"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"european union/erc"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"erc grant"	)
-OR CONTAINS(([NIB_FUNDING_organisation]),	"ERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERC"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NERC"	)  
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCIM"	) 
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"supercom"	)
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
+OR CONTAINS([NIB_FUNDING_organisation],	"_ERC"	)
+OR CONTAINS([NIB_FUNDING_organisation],	"(ERC)"	)
 
 THEN "EU"
 ELSE "ANNET"
