@@ -4,7 +4,7 @@
 
 ```
 IF 
-[funding_source]= "EU "
+[funding_source]= "EU"
 OR [funding_source]= "ESA - den europeiske romfartsorganisasjonen"
 OR [funding_source]= "ERC-European Research Council"
 OR [funding_source]= "EC/H2020"
