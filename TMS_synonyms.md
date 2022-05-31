@@ -21,13 +21,17 @@ END
 ```
 IF 
 CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens forskningsstiftelse")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen forskningsstiftelse")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens forsknings stiftelse")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen forsknings stiftelse")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen research foundation")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen research fund")
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens medisinske forskningsstiftelse")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medisinske forskningsstiftelse")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical research foundation")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical research fund")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical foundation")
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"trond mohn stiftelse")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"trond mohn foundation")
