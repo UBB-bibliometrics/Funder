@@ -1,6 +1,31 @@
 # Finding EU funders in funding organisation data
 
-## Issues
+## Tableau code for Cristin data
+
+```
+IF 
+[funding_source]= "EU "
+OR [funding_source]= "ESA - den europeiske romfartsorganisasjonen"
+OR [funding_source]= "ERC-European Research Council"
+OR [funding_source]= "EC/H2020"
+OR [funding_source]= "EC/FP7"
+
+THEN "EU"
+ELSE "ANNET"
+END
+```
+
+## Tableau code for NIB data
+
+#### Suggestions
+
+Consider:
+* ERDF (European Regional Development Fund)
+* FP7 alone? 
+* horizon europe
+* european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund
+
+#### Issues
 
 Some have "ERC" listed in funding organisation, but ERC is contained within a number of other funders.
 
@@ -19,13 +44,7 @@ AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
 
-## Tableau code for NIB data
-
-Consider:
-* ERDF (European Regional Development Fund)
-* FP7 alone? 
-* horizon europe
-* european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund
+#### Code
 
 ```
 IF 
