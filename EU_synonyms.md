@@ -32,6 +32,7 @@ Some have "ERC" listed in funding organisation, but ERC is contained within a nu
 However, if we use  "NOT CONTAINS" as below, then we will lose results that are funded by ERC and NSERC, for example.
 
 ```
+OR CONTAINS(([NIB_FUNDING_organisation]),	"ERC"	) 
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	) 
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERC"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NERC"	)  
