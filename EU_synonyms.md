@@ -1,4 +1,4 @@
-### Finding EU funders in funding organisation data
+# Finding EU funders in funding organisation data
 
 ## Issues
 
@@ -19,9 +19,13 @@ AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
 
-Consider ERDF (European Regional Development Fund)
-
 ## Tableau code for NIB data
+
+Consider:
+* ERDF (European Regional Development Fund)
+* FP7 alone? 
+* horizon europe
+* european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund
 
 ```
 IF 
@@ -44,6 +48,7 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp7 eu"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp-7 of the eu"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"fp7/erc"	)
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"european fp7"		)
+OR CONTAINS(([NIB_FUNDING_organisation]),	"EU FP6"		)
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"eu horizon"	)		
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),	"horizon 2020"	)
