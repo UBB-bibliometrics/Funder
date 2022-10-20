@@ -19,10 +19,8 @@ END
 
 #### Suggestions
 
-Consider:
-* ERDF (European Regional Development Fund)
-* FP7 alone? 
-* horizon europe
+These have been considered, but don't give additional results:
+* ERDF (European Regional Development Fund - full name already included)
 * european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund
 
 #### Issues
@@ -45,9 +43,9 @@ AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
 
-So far I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok.
+In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`.
 
-#### Code
+#### Terms used
 
 ```
 IF 
