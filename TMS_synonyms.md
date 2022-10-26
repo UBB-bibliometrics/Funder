@@ -24,10 +24,13 @@ END
 
 ## Tableau code for NIB data
 
-#### Consider
+#### Considered
 
+`BMFS` AND `BFS` do not add any results (and are outdated names now). 
 
 #### Code
+
+Note that `Mohn stiftelse` and `Mohn foundation` can refer to other regional departments of Mohn (particularly Tromsø). Not an issue if the analysis is limited to UiB?
 
 ```
 IF 
@@ -46,6 +49,9 @@ OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical foundation")
 
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"trond mohn")
 OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"_tms starting grant")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"frank mohn")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"mohn foundation")
+OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"mohn stiftelse")
  
 THEN "TMS"
 ELSE "ANNET"
