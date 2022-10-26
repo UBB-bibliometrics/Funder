@@ -6,14 +6,16 @@ Information from TMS Bergen:
 * 2004: Bergens forskningsstiftelse og Bergens medisinske forskningsstiftelse blir etablert 
 * (1996: Frank Mohns Stiftelse blir etablert; formelt korrekt å ta med, men det er neppe noen publikasjoner som har nevnt denne stiftelsen som bidragsyter)
  
-Følgende forkortelser er brukt:
-•	Trond Mohn stiftelse: TMS
-•	Bergens forskningsstiftelse: BFS
-•	Bergen Medisinske forskningsstiftelse: BMFS
+The following abbreviations are used:
+*	Trond Mohn stiftelse: TMS
+*	Bergens forskningsstiftelse: BFS
+*	Bergen Medisinske forskningsstiftelse: BMFS
 
 Terms were evaluated together with TMS representatives October 2022.
 
 ## Tableau code for Cristin data
+
+Note that in Cristin these are added as dropdown options on registering (rather than a free-text field), so we don't need to wash/search with alternatives.
 
 ```
 IF 
@@ -25,6 +27,8 @@ END
 ```
 
 ## Tableau code for NIB data
+
+In NIB the data is directly from the funding text/acknowledgements, so we need to wash for alternatives.
 
 #### Considered
 
