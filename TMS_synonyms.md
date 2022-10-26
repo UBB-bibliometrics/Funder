@@ -1,6 +1,6 @@
-# Terms for Trond Moen Stiftelse
+# Terms for Trond Moen Stiftelse (Bergen)
 
-Information from TMS:
+Information from TMS Bergen:
 * 2019: Bergens forskningsstiftelse skifter navn til Trond Mohn stiftelse.
 * 2014: Bergens medisinske forskningsstiftelse overtar ved fusjon Bergens forskningsstiftelse og Frank Mohns Stiftelse den 1. januar 2014, og samme dag endrer stiftelsen navn til Bergens forskningsstiftelse.
 * 2004: Bergens forskningsstiftelse og Bergens medisinske forskningsstiftelse blir etablert 
@@ -10,6 +10,8 @@ Følgende forkortelser er brukt:
 •	Trond Mohn stiftelse: TMS
 •	Bergens forskningsstiftelse: BFS
 •	Bergen Medisinske forskningsstiftelse: BMFS
+
+Terms were evaluated together with TMS representatives October 2022.
 
 ## Tableau code for Cristin data
 
