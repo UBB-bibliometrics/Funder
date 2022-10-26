@@ -2,6 +2,8 @@
 
 ## Tableau code for Cristin data
 
+Note that in Cristin these are added as dropdown options on registering (rather than a free-text field), so we don't need to wash/search with alternatives.
+
 ```
 IF 
 [funding_source]= "Norges forskningsråd" 
@@ -12,35 +14,32 @@ END
 
 ## Tableau code for NIB data
 
-#### Consider
+In NIB the data is directly from the funding text/acknowledgements, so we need to wash for alternatives.
 
-* "_RCN"
-
-#### Code
+### Code
 
 ```
 IF 
-CONTAINS(LOWER([NIB_FUNDING_organisation]),"research council of norway")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"research council norway")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"reserach council of norway")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"norwegian research council")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"norwegian science council")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr forny grant")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr biotek2021 grant")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr project")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"[nfr]")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr (norway)")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr/frinatek")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr/maroff")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"(nfr - norway)")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"norges forskningsråd")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"norges forskningsrad")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr in norway")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr multival project")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"norway (nfr)")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr-petromaks2 project")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"nfr fri -nat project")
-OR CONTAINS([NIB_FUNDING_organisation],"NFR")
+CONTAINS(LOWER([NIB FO combined]),"research council of norway")
+OR CONTAINS(LOWER([NIB FO combined]),"norwegian research council")
+OR CONTAINS(LOWER([NIB FO combined]),"norwegian science council")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr forny grant")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr biotek2021 grant")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr project")
+OR CONTAINS(LOWER([NIB FO combined]),"[nfr]")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr (norway)")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr/frinatek")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr/maroff")
+OR CONTAINS(LOWER([NIB FO combined]),"(nfr - norway)")
+OR CONTAINS(LOWER([NIB FO combined]),"norges forskningsråd")
+OR CONTAINS(LOWER([NIB FO combined]),"norges forskningsrad")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr in norway")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr multival project")
+OR CONTAINS(LOWER([NIB FO combined]),"norway (nfr)")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr-petromaks2 project")
+OR CONTAINS(LOWER([NIB FO combined]),"nfr fri -nat project")
+OR CONTAINS([NIB FO combined],"NFR")
+OR CONTAINS([NIB FO combined],"RCN")
 
 THEN "NFR"
 ELSE "ANNET"
