@@ -34,24 +34,24 @@ Note that `Mohn stiftelse` and `Mohn foundation` can refer to other regional dep
 
 ```
 IF 
-CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens forskningsstiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen forskningsstiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens forsknings stiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen forsknings stiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen research foundation")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen research fund")
+CONTAINS(LOWER([NIB FO combined]),"bergens forskningsstiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen forskningsstiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergens forsknings stiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen forsknings stiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen research foundation")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen research fund")
 
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergens medisinske forskningsstiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medisinske forskningsstiftelse")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical research foundation")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical research fund")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"bergen medical foundation")
+OR CONTAINS(LOWER([NIB FO combined]),"bergens medisinske forskningsstiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen medisinske forskningsstiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen medical research foundation")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen medical research fund")
+OR CONTAINS(LOWER([NIB FO combined]),"bergen medical foundation")
 
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"trond mohn")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"_tms starting grant")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"frank mohn")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"mohn foundation")
-OR CONTAINS(LOWER([NIB_FUNDING_organisation]),"mohn stiftelse")
+OR CONTAINS(LOWER([NIB FO combined]),"trond mohn")
+OR CONTAINS(LOWER([NIB FO combined]),"_tms starting grant")
+OR CONTAINS(LOWER([NIB FO combined]),"frank mohn")
+OR CONTAINS(LOWER([NIB FO combined]),"mohn foundation")
+OR CONTAINS(LOWER([NIB FO combined]),"mohn stiftelse")
  
 THEN "TMS"
 ELSE "ANNET"
