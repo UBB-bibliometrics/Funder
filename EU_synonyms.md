@@ -47,7 +47,7 @@ AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
 
-In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`.
+In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`. Note that this works because I have separated funders using `_` when creating the original data. 
 
 ### Terms used
 
