@@ -29,9 +29,11 @@ These have been considered, but don't give additional results:
 * ERDF (European Regional Development Fund - full name already included)
 * european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund?
 
-Under consideration:
-* ERA-NET and COFUND - need feedback on whether these should be included. They add more results.
+Under consideration -  need feedback on whether these should be included. They add more results.
+* ERA-NET, ERA.net and COFUND
 * ESA & European Space Agency
+* ERASMUS (or ERASMUS MUNDUS)
+* European parliament
 
 ### Issues
 
@@ -50,8 +52,9 @@ AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
 AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
 ```
-
 In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`. Note that this works because I have separated funders using `_` when creating the original data. The same goes for `_EU` etc.
+
+Update 11.2022 - Have implemented REGEX_MATCH so this is less of a problem now. 
 
 ### Terms used
 
@@ -74,13 +77,13 @@ OR CONTAINS(LOWER([NIB FO combined]),	"EU research consortium"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"EU research council"	)
 OR CONTAINS([NIB FO combined],	"_ERC"	)
 OR CONTAINS([NIB FO combined],	"(ERC)"	)
-OR CONTAINS([NIB FO combined],	" ERC "	)
+OR REGEXP_MATCH([NIB FO combined], "\bERC\b")
 OR CONTAINS(([NIB FO combined]),	"_EC "	)
+OR REGEXP_MATCH([NIB FO combined], "\bEC\b")
 OR CONTAINS(([NIB FO combined]),	"_EU "	)
 OR CONTAINS(([NIB FO combined]),	"(EU "	)
 OR CONTAINS(([NIB FO combined]),	"(EU)"	)
-OR CONTAINS(([NIB FO combined]),	" EU "	)
-OR (CONTAINS(([NIB FO combined]),	"EU "	) AND NOT CONTAINS(([NIB FO combined]),	"REU "	))
+OR REGEXP_MATCH([NIB FO combined], "\bEU\b")
 
 OR CONTAINS(([NIB FO combined]),	"EU project"	)
 OR CONTAINS(([NIB FO combined]),	"EU program"	)
@@ -92,8 +95,6 @@ OR CONTAINS(([NIB FO combined]),	"EU through"	)
 OR CONTAINS(([NIB FO combined]),	"EU under"	)
 
 OR CONTAINS(LOWER([NIB FO combined]),	"(erc grant"	)
-OR CONTAINS(LOWER([NIB FO combined]),	"_erc grant"	)
-OR CONTAINS(([NIB FO combined]),	"EU grant"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"erc starting grant"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"erc advanced grant"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"erc consolidator grant"	)
@@ -117,6 +118,7 @@ OR CONTAINS(LOWER([NIB FO combined]),	"7th framework eu"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"7th european framework"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"7th eu framework"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"eu 7th framework"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"eu's 7"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"fp7 project"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"seventh framework program"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"eu fp7"	)
@@ -151,13 +153,11 @@ OR CONTAINS(LOWER([NIB FO combined]),	"marie-curie"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"mcsa"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"marie s. curie"	)
 		
-OR CONTAINS(LOWER([NIB FO combined]),	"cost action"	)		
-OR CONTAINS(([NIB FO combined]),	"COST "	)
+OR CONTAINS(LOWER([NIB FO combined]),	"cost action"	)
+OR REGEXP_MATCH([NIB FO combined], "\bCOST\b")
 OR CONTAINS(([NIB FO combined]),	"(COST)"	)
 OR CONTAINS(([NIB FO combined]),	"european cooperation in science and technology")
-OR CONTAINS(([NIB FO combined]),	"COST-"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"eu - cost"	)
-OR CONTAINS(([NIB FO combined]),	"EU COST"	)
 
 THEN "EU"
 ELSE "ANNET"
