@@ -155,6 +155,7 @@ OR CONTAINS(LOWER([NIB FO combined]),	"marie s. curie"	)
 		
 OR CONTAINS(LOWER([NIB FO combined]),	"cost action"	)
 OR REGEXP_MATCH([NIB FO combined], "\bCOST\b")
+OR REGEXP_MATCH([NIB FO combined], "_COST\b")
 OR CONTAINS(([NIB FO combined]),	"(COST)"	)
 OR CONTAINS(([NIB FO combined]),	"european cooperation in science and technology")
 OR CONTAINS(LOWER([NIB FO combined]),	"eu - cost"	)
