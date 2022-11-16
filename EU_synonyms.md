@@ -31,6 +31,7 @@ These have been considered, but don't give additional results:
 
 Under consideration:
 * ERA-NET and COFUND - need feedback on whether these should be included. They add more results.
+* ESA & European Space Agency
 
 ### Issues
 
@@ -66,19 +67,20 @@ OR CONTAINS(LOWER([NIB FO combined]),	"european research commission"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european research consortium"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european research council"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european science council (erc)"	)
-OR CONTAINS(([NIB FO combined]),	"EU commission"	)
-OR CONTAINS(([NIB FO combined]),	"EU research area"	)
-OR CONTAINS(([NIB FO combined]),	"EU research commission"	)
-OR CONTAINS(([NIB FO combined]),	"EU research consortium"	)
-OR CONTAINS(([NIB FO combined]),	"EU research council"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"EU commission"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"EU research area"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"EU research commission"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"EU research consortium"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"EU research council"	)
 OR CONTAINS([NIB FO combined],	"_ERC"	)
 OR CONTAINS([NIB FO combined],	"(ERC)"	)
 OR CONTAINS([NIB FO combined],	" ERC "	)
+OR CONTAINS(([NIB FO combined]),	"_EC "	)
 OR CONTAINS(([NIB FO combined]),	"_EU "	)
 OR CONTAINS(([NIB FO combined]),	"(EU "	)
 OR CONTAINS(([NIB FO combined]),	"(EU)"	)
 OR CONTAINS(([NIB FO combined]),	" EU "	)
-OR CONTAINS(([NIB FO combined]),	" EU "	)
+OR (CONTAINS(([NIB FO combined]),	"EU "	) AND NOT CONTAINS(([NIB FO combined]),	"REU "	))
 
 OR CONTAINS(([NIB FO combined]),	"EU project"	)
 OR CONTAINS(([NIB FO combined]),	"EU program"	)
@@ -107,6 +109,7 @@ OR CONTAINS(LOWER([NIB FO combined]),	"european social fund"	)
 
 OR CONTAINS(LOWER([NIB FO combined]),	"european framework program"	)
 OR CONTAINS(([NIB FO combined]),	"EU framework"	)
+OR CONTAINS(([NIB FO combined]),	"EU FP"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"7th research program of the european community"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"7th research framework"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"7th framework programme"	)
