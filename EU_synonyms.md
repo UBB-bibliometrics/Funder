@@ -29,42 +29,20 @@ These have been considered, but don't give additional results:
 * ERDF (European Regional Development Fund - full name already included)
 * european fisheries fund / european maritime and fisheries fund / european maritime, fisheries and aquaculture fund?
 
-Under consideration -  need feedback on whether these should be included. They add more results.
-* ERA-NET, ERA.net and COFUND
-* ESA & European Space Agency
-* ERASMUS (or ERASMUS MUNDUS)
-* European parliament
-
-### Issues
-
-Some have "ERC" listed in funding organisation, but ERC is contained within a number of other funders. However, if we use  "NOT CONTAINS" as below, then we will lose results that are funded by ERC and NSERC, for example.
-
-```
-OR CONTAINS(([NIB_FUNDING_organisation]),	"ERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERC"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NERC"	)  
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCIM"	) 
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"supercom"	)
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
-```
-In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`. Note that this works because I have separated funders using `_` when creating the original data. The same goes for `_EU` etc.
-
-Update 11.2022 - Have implemented REGEX_MATCH so this is less of a problem now. 
-
 ### Terms used
 
-ERA-NET and COFUND are currently commented out while we ascertain whether they should be included.
+I was unsure about these, whether they should be considered EU, but have got feedback from the Research and Innovation Department that they can be included for now. 
+* ERA-NET, ERA.net and COFUND
+* ESA & European Space Agency
+* ERASMUS
+* European parliament
 
 ```
 IF 
 CONTAINS(LOWER([NIB FO combined]),	"european community"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european union"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european commission"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"european parliament"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european research area for "	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european research commission"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"european research consortium"	)
@@ -142,9 +120,10 @@ OR CONTAINS(LOWER([NIB FO combined]),	"h2020"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"eu's horizon"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"horizon framework program"	)		
 OR CONTAINS(LOWER([NIB FO combined]),	"framework programme horizon"	)
-//OR CONTAINS(LOWER([NIB FO combined]),	"era-net"	)
-//OR CONTAINS(LOWER([NIB FO combined]),	"era.net"	)
-//OR CONTAINS(([NIB FO combined]),	"COFUND"	)
+
+OR CONTAINS(LOWER([NIB FO combined]),	"era-net"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"era.net"	)
+OR CONTAINS(([NIB FO combined]),	"COFUND"	)
 
 OR CONTAINS(LOWER([NIB FO combined]),	"marie curie"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"marie sklodowska"	)
@@ -160,7 +139,34 @@ OR CONTAINS(([NIB FO combined]),	"(COST)"	)
 OR CONTAINS(([NIB FO combined]),	"european cooperation in science and technology")
 OR CONTAINS(LOWER([NIB FO combined]),	"eu - cost"	)
 
+OR CONTAINS(LOWER([NIB FO combined]),	"erasmus"	)
+
+OR REGEXP_MATCH([NIB FO combined], "\bESA\b")
+OR CONTAINS(LOWER([NIB FO combined]),	"european space agency"	)
+
 THEN "EU"
 ELSE "ANNET"
 END
 ```
+
+
+### Solved issues
+
+Some have "ERC" listed in funding organisation, but ERC is contained within a number of other funders. However, if we use  "NOT CONTAINS" as below, then we will lose results that are funded by ERC and NSERC, for example.
+
+```
+OR CONTAINS(([NIB_FUNDING_organisation]),	"ERC"	) 
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	) 
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERC"	)
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NERC"	)  
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERCA"	) 
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCA"	) 
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCIM"	) 
+AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"supercom"	)
+AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"recherche"	)
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
+AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
+```
+In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`. Note that this works because I have separated funders using `_` when creating the original data. The same goes for `_EU` etc.
+
+**Update 11.2022 - Have implemented REGEX_MATCH so this is less of a problem now.**
