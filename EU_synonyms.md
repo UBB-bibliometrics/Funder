@@ -109,6 +109,8 @@ OR CONTAINS(LOWER([NIB FO combined]),	"h2020"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"eu's horizon"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"horizon framework program"	)		
 OR CONTAINS(LOWER([NIB FO combined]),	"framework programme horizon"	)
+OR CONTAINS(LOWER([NIB FO combined]),	"horizon europe"	)
+OR REGEXP_MATCH([NIB FO combined], "\bHEU\b")
 
 OR CONTAINS(LOWER([NIB FO combined]),	"(erc grant"	)
 OR CONTAINS(LOWER([NIB FO combined]),	"erc starting grant"	)
@@ -152,24 +154,3 @@ ELSE "ANNET"
 END
 ```
 
-
-### Solved issues
-
-Some have "ERC" listed in funding organisation, but ERC is contained within a number of other funders. However, if we use  "NOT CONTAINS" as below, then we will lose results that are funded by ERC and NSERC, for example.
-
-```
-OR CONTAINS(([NIB_FUNDING_organisation]),	"ERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERC"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NERC"	)  
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"CERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCA"	) 
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"ERCIM"	) 
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"supercom"	)
-AND NOT CONTAINS(LOWER([NIB_FUNDING_organisation]),	"recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"Recherche"	)
-AND NOT CONTAINS(([NIB_FUNDING_organisation]),	"NSERC"	)
-```
-In the current version, I have used `OR CONTAINS([NIB_FUNDING_organisation],"_ERC") OR CONTAINS([NIB_FUNDING_organisation], "(ERC)")`, seems to work ok and no extra results were found with only searching for `ERC`. Note that this works because I have separated funders using `_` when creating the original data. The same goes for `_EU` etc.
-
-**Update 11.2022 - Have implemented REGEX_MATCH so this is less of a problem now.**
