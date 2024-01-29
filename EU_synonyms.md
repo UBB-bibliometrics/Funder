@@ -8,12 +8,12 @@ Note that in Cristin these are added as dropdown options on registering (rather 
 
 ```
 IF 
-[funding_source]= "EU"
-OR [funding_source]= "ESA - den europeiske romfartsorganisasjonen"
-OR [funding_source]= "ERC-European Research Council"
-OR [funding_source]= "EC/H2020"
-OR [funding_source]= "EC/FP7"
-
+[Funding Source]= "EU"
+OR [Funding Source]= "ESA - den europeiske romfartsorganisasjonen"
+OR [Funding Source]= "ERC-European Research Council"
+OR [Funding Source]= "EU – Horisont Europa (EC/HEU)"
+OR [Funding Source]= "EC/H2020"
+OR [Funding Source]= "EC/FP7"
 THEN "EU"
 ELSE "ANNET"
 END
